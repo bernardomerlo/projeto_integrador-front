@@ -50,6 +50,7 @@
 }
 
 input[type="name"],
+input[type="usuario"],
 input[type="email"],
 input[type="password"] {
     background-color: #FFFFFF;
@@ -63,6 +64,7 @@ input[type="password"] {
 }
 
 input[type="name"]:focus,
+input[type="usuario"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
     box-shadow: 0px 0px 4px #6cd8cd;
@@ -70,12 +72,14 @@ input[type="password"]:focus {
 }
 
 input[type="name"]:focus::placeholder,
+input[type="usuario"]:focus::placeholder,
 input[type="email"]:focus::placeholder,
 input[type="password"]:focus::placeholder {
     color: #c8c8c8
 }
 
 input[type="name"]::placeholder,
+input[type="usuario"]::placeholder,
 input[type="email"]::placeholder,
 input[type="password"]::placeholder {
     color: #909cA2

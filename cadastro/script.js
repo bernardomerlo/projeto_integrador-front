@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault(); // Evita o comportamento padrão de recarregar a página.
 
         const nome = form.nome.value.trim();
+        const username = form.usuario.value.trim();
         const email = form.email.value.trim();
         const senha = form.senha.value.trim();
 
@@ -14,7 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const payload = {
-            name: nome,
+            fullname: nome,
+            username: username,
             email: email,
             password: senha,
         };
@@ -31,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (response.ok) {
                 const data = await response.json();
                 alert("Cadastro realizado com sucesso!");
-                console.log(data); // Exibe a resposta do servidor no console.
+                window.location.href = "../feed/index.html";
             } else {
                 const errorData = await response.json();
                 alert(`Erro ao cadastrar: ${errorData.message || "Erro desconhecido"}`);

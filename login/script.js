@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("userId", userId);
 
         // Redireciona para a página principal
-        window.location.href = "../main.html"; // Substitua pelo caminho real da sua página
+        window.location.href = "../feed/index.html"; // Substitua pelo caminho real da sua página
       } else {
         const errorData = await response.json();
         alert(
