@@ -146,3 +146,64 @@ widgetsInput.addEventListener("input", () => {
 
 // Inicializar
 loadPosts();
+
+const commentModal = document.getElementById("commentModal");
+const closeCommentModal = document.getElementById("closeCommentModal");
+const commentInput = document.getElementById("commentInput");
+const submitCommentButton = document.getElementById("submitCommentButton");
+
+let currentPostId = null; // Variável para rastrear o ID do post ativo
+
+feedContainer.addEventListener("click", (event) => {
+  if (event.target.classList.contains("comment-button")) {
+    currentPostId = event.target.dataset.postId; // Captura o ID do post
+    commentModal.style.display = "block"; // Exibe o modal
+  }
+});
+
+closeCommentModal.addEventListener("click", () => {
+  commentModal.style.display = "none";
+  commentInput.value = ""; // Limpar o campo de texto
+});
+
+// Fechar ao clicar fora do modal
+window.addEventListener("click", (event) => {
+  if (event.target === commentModal) {
+    commentModal.style.display = "none";
+    commentInput.value = ""; // Limpar o campo de texto
+  }
+});
+
+submitCommentButton.addEventListener("click", async () => {
+  const commentContent = commentInput.value.trim();
+
+  if (!commentContent) {
+    alert("Por favor, escreva um comentário antes de enviar.");
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      `http://localhost:8080/api/comments/${currentPostId}/${userId}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ content: commentContent }),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Erro ao enviar comentário: ${response.status}`);
+    }
+
+    alert("Comentário enviado com sucesso!");
+    commentModal.style.display = "none";
+    commentInput.value = "";
+  } catch (error) {
+    console.error("Erro ao enviar comentário:", error);
+    alert("Não foi possível enviar o comentário. Tente novamente mais tarde.");
+  }
+});
