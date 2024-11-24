@@ -1,83 +1,70 @@
 <!DOCTYPE html>
-<html lang ="pt-br">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mente Uni</title>
-    <!--links do css-->
-     <link rel="stylesheet" href="css/style.css">
-    <!--icone-->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
-    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" 
-    />
-    <link rel="stylesheet" href="style.css"/>
+<html lang="pt-br">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE-edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mente Uni</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+   integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+   crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="style.css" />
+
 <head>
+
 <body>
-   <!--Barra lateral-->
    <div class="sidebar">
-    <img class="logo" src="img/logo.svg">
-    <div class="sidebarOption active">
-      <span class="material-symbols-outlined"> home </span>
-      <h2>Home</h2>
-    </div>
-    
-   <div class="sidebarOption">
-      <span class="material-symbols-outlined"> search </span>
-      <h2>Explorar</h2>
+      <img class="logo" src="img/logo.svg">
+      <div class="sidebarOption active">
+         <span class="material-symbols-outlined"> home </span>
+         <h2>Home</h2>
+      </div>
+
+      <div class="sidebarOption">
+         <span class="material-symbols-outlined"> search </span>
+         <h2>Explorar</h2>
+      </div>
+
+      <div class="sidebarOption">
+         <span class="material-symbols-outlined"> notifications </span>
+         <h2>Notificações</h2>
+      </div>
+
+      <div class="sidebarOption">
+         <span class="material-symbols-outlined"> forum </span>
+         <h2>Conversas</h2>
+      </div>
+
+      <div class="sidebarOption">
+         <span class="material-symbols-outlined"> bookmark </span>
+         <h2>Salvos</h2>
+      </div>
+
+      <div class="sidebarOption">
+         <span class="material-symbols-outlined"> person </span>
+         <h2>Perfil</h2>
+      </div>
+
    </div>
-
-   <div class="sidebarOption">
-      <span class="material-symbols-outlined"> notifications </span>
-      <h2>Notificações</h2>
-   </div>
-
-   <div class="sidebarOption">
-      <span class="material-symbols-outlined"> forum </span>
-      <h2>Conversas</h2>
-   </div>
-
-   <div class="sidebarOption">
-      <span class="material-symbols-outlined"> bookmark </span>
-      <h2>Salvos</h2>  
-   </div>
-
-   <div class="sidebarOption">
-      <span class="material-symbols-outlined"> person </span>
-      <h2>Perfil</h2>
-   </div>   
-
-    </div>
-   <!--Barra lateral-->
-   
-   <!--feed starts-->
    <div class="feed">
       <div class="feed_header">
          <h2>Home</h2>
       </div>
 
-      <!--barratexto starts-->
       <div class="postBox">
          <form>
             <div class="postBox__input">
-               <img src="img/foto.svg"
-               alt=""
-               >
-               <input type="text" placeholder="Compartilhe algo com a comunidade!">
+               <img src="img/foto.svg" alt="">
+               <input type="text" id="postContent" placeholder="Compartilhe algo com a comunidade!">
             </div>
             <button class="postBox__postButton">Publicar</button>
          </form>
       </div>
-      <!--barratexto ends-->
-    
-   <!-- post start-->
-   
-   <!-- post start-->   
+
+      <div class="postsContainer"></div>
    </div>
-   <!--feed ends-->
-   
-   <!--Barra lateral direita-->
    <div class="widgets">
       <div class="widgets__input">
          <span class="material-symbols-outlined">search</span>
@@ -86,21 +73,25 @@
 
       <div class="balao">
          <p lang="pt-br" dir="ltr">
-            <h1> Insegurança </h1>
-            A insegurança afeta muitos estudantes, gerando dúvidas sobre capacidade, escolhas e futuro. Vamos discutir o que causa esses sentimentos e como eles impactam a vida acadêmica e pessoal.
-            Compartilhe suas experiências e aprenda maneiras de lidar e superar a insegurança!
+         <h1> Insegurança </h1>
+         A insegurança afeta muitos estudantes, gerando dúvidas sobre capacidade, escolhas e futuro. Vamos discutir o
+         que causa esses sentimentos e como eles impactam a vida acadêmica e pessoal.
+         Compartilhe suas experiências e aprenda maneiras de lidar e superar a insegurança!
          </p>
       </div>
-      
+
       <div class="balao">
          <p lang="pt-br" dir="ltr">
-            <h1> Medo de falhar </h1>
-            O medo de falhar pode ser paralisante, especialmente na universidade, onde a pressão por sucesso é constante. Vamos discutir como o medo do fracasso afeta nossas escolhes e atitudes,
-            e explorar formas de enfrentá-lo para seguir em frente com mais confiança.
+         <h1> Medo de falhar </h1>
+         O medo de falhar pode ser paralisante, especialmente na universidade, onde a pressão por sucesso é constante.
+         Vamos discutir como o medo do fracasso afeta nossas escolhes e atitudes,
+         e explorar formas de enfrentá-lo para seguir em frente com mais confiança.
          </p>
-      </div> 
+      </div>
    </div>
-   <!--Barra lateral direita-->
+
+   <script src="script.js"></script>
 </body>
 </head>
+
 </html>
