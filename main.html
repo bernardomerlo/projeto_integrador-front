@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <header>
+        <h1>Bem-vindo à Mente Uni</h1>
+        <button id="logoutButton">Sair</button>
+    </header>
+    <section id="createPostSection">
+        <h2>Criar Post</h2>
+        <form id="createPostForm">
+            <input type="text" id="postTitle" placeholder="Digite o título" required>
+            <textarea id="postContent" placeholder="Digite o conteúdo" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+    <main>
+        <h2>Posts</h2>
+        <section id="postsContainer"></section>
+    </main>
+
+    <!-- Modal para Comentários -->
+    <div id="commentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeCommentModal">&times;</span>
+            <h3>Adicionar Comentário</h3>
+            <textarea id="commentContent" placeholder="Digite seu comentário"></textarea>
+            <button id="submitCommentButton">Enviar</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

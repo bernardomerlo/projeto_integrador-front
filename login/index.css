@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.contener {
+    display: flex;
+    
+}
+
+.contener-esquerda {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.contener-direita {
+    display: flex;
+    padding-left: 350px;
+
+}
+
+.card-box {
+    margin-left: 100px;
+    position: absolute;
+    width: 396px;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgb(204, 204, 204);
+    padding: 17px;
+    padding-bottom: 24px;
+}
+
+.conteudo-box {
+    background-color: #ffffff;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.conteudo-box>h1 {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #08413B;
+    background-color: #ffffff;
+}
+
+input[type="email"],
+input[type="password"] {
+    background-color: #dfdfdf;
+    border: 1px solid #dfdfdf;
+    padding: 18px;
+    font-size: 17px;
+    border-radius: 5px;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    box-shadow: 0px 0px 4px #a0c7c3;
+    outline: 1px solid #bddad7;
+}
+
+
+input[type="email"]:focus::placeholder,
+input[type="password"]:focus::placeholder {
+    color: #c8c8c8
+}
+
+
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+    color: #909cA2
+}
+
+.logar {
+    display: flex;
+    color: #127369;
+    font-size: 14px;
+    margin-top: 18px;
+    background-color: #ffffff;
+}
+
+.barra-decorativa {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    background-color: #0e574f;
+    height: 1px;
+    width: 100%;
+}
+
+button[type="criar-nova-conta"] {
+    background: #08413B;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: 0;
+    border-radius: 7px;
+    color: #FFFFFF;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    height: 50px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button[type="criar-nova-conta"]:hover {
+    background: #062e2a;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
