@@ -44,25 +44,30 @@ function renderPost(post) {
   postElement.innerHTML = `
       <div class="post__header">
           <img src="img/foto.svg" alt="Avatar" class="post__avatar">
-          <h3>${post.title}</h3> <!-- Título do post -->
+          <h3>${post.title}</h3>
       </div>
       <div class="post__body">
           <p>${post.content}</p>
       </div>
       <div class="post__footer">
-          <span>ID: ${post.id} | Data: ${new Date(
-    post.createdAt
-  ).toLocaleString()}</span>
+          <span>Data: ${new Date(post.createdAt).toLocaleString()}</span>
           <div class="post__actions">
-              <button class="like-button" data-post-id="${
-                post.id
-              }">Curtir</button>
-              <span class="like-count" id="like-count-${post.id}">${
-    post.likesCount
-  }</span> curtidas
-              <button class="comment-button" data-post-id="${
-                post.id
-              }">Comentar</button>
+              <div class="like-section">
+                  <button class="like-button" data-post-id="${post.id}">
+                      Curtir
+                  </button>
+                  <span class="like-count" id="like-count-${post.id}">
+                      ${post.likesCount || 0} curtidas
+                  </span>
+              </div>
+              <div class="comment-section">
+                  <button class="comment-button" data-post-id="${post.id}">
+                      Comentar
+                  </button>
+                  <span class="comment-count" id="comment-count-${post.id}">
+                      ${(post.comments).length || 0} comentários
+                  </span>
+              </div>
           </div>
       </div>
   `;
@@ -70,8 +75,39 @@ function renderPost(post) {
     handleLike(post.id);
   });
 
+  postElement.querySelector(".comment-button").addEventListener("click", () => {
+    handleComment(post.id);
+  });
+
   feedContainer.prepend(postElement);
 }
+
+async function fetchCommentCount(postId) {
+  try {
+    const response = await fetch(
+      `http://localhost:8080/api/comments/${postId}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+
+    if (!response.ok) throw new Error("Erro ao carregar os comentários.");
+
+    comments = await response.json();
+    console.log(comments);
+    return comments; // Retorna o número de comentários
+  } catch (error) {
+    console.error("Erro ao buscar contagem de comentários:", error);
+    return 0;
+  }
+}
+
+async function renderPostWithComments(post) {
+  const commentCount = await fetchCommentCount(post.id);
+  post.commentsCount = commentCount; // Adiciona a contagem ao post
+  renderPost(post); // Renderiza o post com a contagem atualizada
+}
+
 async function handleLike(postId) {
   try {
     const response = await fetch(
@@ -198,6 +234,13 @@ submitCommentButton.addEventListener("click", async () => {
     if (!response.ok) {
       throw new Error(`Erro ao enviar comentário: ${response.status}`);
     }
+
+    // Atualizar contagem de comentários
+    const commentCountElement = document.getElementById(
+      `comment-count-${currentPostId}`
+    );
+    const currentCommentCount = parseInt(commentCountElement.textContent) || 0;
+    commentCountElement.textContent = `${currentCommentCount + 1} comentários`;
 
     alert("Comentário enviado com sucesso!");
     commentModal.style.display = "none";

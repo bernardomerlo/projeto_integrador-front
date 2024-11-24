@@ -352,3 +352,36 @@ body {
 #submitCommentButton:hover {
   background-color: #45a049;
 }
+/* Seção de curtidas e botões */
+.post__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.post__actions .like-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.post__actions button {
+  background-color: #00acee;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.post__actions button:hover {
+  background-color: #008ac7;
+}
+
+.post__actions .like-count {
+  font-weight: bold;
+  color: #333;
+}
