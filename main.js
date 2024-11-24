@@ -96,7 +96,7 @@ function renderPost(post) {
       </div>
       <div class="post-likes">
           <button class="like-button" data-post-id="${post.id}">Curtir</button>
-          <span class="like-count" id="like-count-${post.id}">0</span> curtidas
+          <span class="like-count" id="like-count-${post.id}">${post.likesCount}</span> curtidas
           <button class="comment-button" data-post-id="${
             post.id
           }">Comentar</button>
